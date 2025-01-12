@@ -7,13 +7,13 @@ const { createCategory, deleteCategory, getAllCategories, updateCategory } = req
 router.post("/create", createCategory);
 
 // delete a category
-router.delete("/delete/:id", deleteCategory);
+router.delete("/delete/:name", deleteCategory);
 
 // get all categories
 router.get("/getAll", getAllCategories);
 
 // update a category
-router.put("/update/:id", updateCategory);
+router.put("/update/:oldName/:newName", updateCategory);
 
 
 module.exports = router;
