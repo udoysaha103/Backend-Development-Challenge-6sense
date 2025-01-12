@@ -10,11 +10,22 @@ dotenv.config();
 const mongoose = require("mongoose");
 
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+
+// importing routes
+
+
+
+// default endpoint
+app.get("/api", (req, res) => {
+    res.status(200).json({"message": "Challenge accepted!"});
 });
 
 
+// Connecting to MongoDB and starting the server
 const PORT = process.env.BACKEND_PORT || 3002;
 
 mongoose

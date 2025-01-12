@@ -3,5 +3,5 @@
 
 
 # get the home endpoint
-GET {{baseUrl}}/
+GET {{baseUrl}}/api
 
