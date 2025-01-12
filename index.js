@@ -16,7 +16,10 @@ app.use(express.urlencoded({extended: false}));
 
 
 // importing routes
-
+const productRoutes = require("./routes/product.router");
+const categoryRoutes = require("./routes/category.router");
+app.use("/api/product", productRoutes);
+app.use("/api/category", categoryRoutes);
 
 
 // default endpoint

@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please enter the price of the product."],
     },
-    discount: { type: Number, default: 0 },
+    discount: { type: Number, default: 0 },  // discount in percentage (0-100)
     image: { type: String, required: [true, "Please enter the image URL."] },
     status: {
       type: String,
