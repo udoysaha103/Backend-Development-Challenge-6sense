@@ -56,7 +56,7 @@ This project is a backend system built with Node.js and Express.js. It demonstra
 
 ## API Endpoints
 
-The detailed documentation and API endpoints can be found at the file [API_requests_documentation.rest](`API_requests_documentation.rest`).
+The detailed documentation and API endpoints can be found at the file [`API_requests_documentation.rest`](./API_requests_documentation.rest).
 
 
 
