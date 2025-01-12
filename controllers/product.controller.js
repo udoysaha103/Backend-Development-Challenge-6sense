@@ -243,12 +243,12 @@ const filterByCategory = async (req, res) => {
     try{
         const { categoryName } = req.params;
 
-        const category = await Category.findOne({name: categoryName});
+        const category = await Category.findOne({name: {$regex: categoryName, $options: "i"}});  // case-insensitive search
         if (!category) {
             return res.status(400).json({message: "Category not found"});
         }
 
-        let products = await Product.find({category: category._id}).lean();  // convert to plain JS object to add new key
+        let products = await Product.find({category: category._id}).populate('category', 'name').lean();  // convert to plain JS object to add new key
 
         if (!products) {
             return res.status(400).json({message: "No products found"});

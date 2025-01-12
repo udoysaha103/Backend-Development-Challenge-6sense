@@ -1,0 +1,135 @@
+# Set a base URL variable
+@baseUrl = http://localhost:3001
+
+
+### get the home endpoint
+GET {{baseUrl}}/api
+###
+
+
+
+### ---------- for categories ----------
+
+### create a category
+# Request body should contain the 'name' of the category.
+# The name of the category should be unique. If the category already exists, it will not be created.
+POST {{baseUrl}}/api/category/create
+Content-Type: application/json
+
+{
+    "name": "Electronics"
+}
+###
+
+
+### delete a category
+# The API url should contain the 'name' parameter of the category to be deleted.
+# As the names are unique, deleting by ID is not required, and the name works as the unique identifier.
+DELETE {{baseUrl}}/api/category/delete/<category_name>
+###
+
+
+### get all categories
+# This will return all the categories in the database.
+GET {{baseUrl}}/api/category/getAll
+###
+
+
+### update a category name
+# The API url should contain the 'oldName' and 'newName' parameters of the category to be updated.
+# The 'oldName' parameter works as the unique identifier for the category.
+PUT {{baseUrl}}/api/category/update/<oldName>/<newName>
+###
+
+### ---------- for categories ----------
+
+
+
+### ---------- for products ----------
+
+### create a product
+# Request body should contain the following fields:
+# - name: The name of the product.
+# - description: The description of the product.
+# - price: The price of the product (>=0).
+# - discount: The discount percentage on the product (0-100).
+# - image: The URL of the image of the product.
+# - status: The availability status of the product (In Stock / Stock Out).
+# - category: The category name of the product.
+
+# The 'name' of the product should be unique. If a product with the same name already exists, it will not be created.
+# A product code will be generated automatically based on the name of the product. As the name is unique, the code will also be unique.
+# The category of the product should already exist in the database.
+POST {{baseUrl}}/api/product/create
+Content-Type: application/json
+
+{
+    "name": "Jollibee Popcorn",
+    "description": "The best fast food in the world",
+    "price": 4000,
+    "discount": 25,
+    "image": "https://www.jollibee.com.ph/uploads/2021/01/Popcorn-Chicken-1pc-1-1.jpg",
+    "status": "In Stock",
+    "category": "Food"
+}
+###
+
+
+### delete a product
+# The API url should contain the 'name' parameter of the product to be deleted.
+# As the names are unique, deleting by ID is not required, and the name works as the unique identifier.
+DELETE {{baseUrl}}/api/product/delete/<name>
+###
+
+
+### get all products
+# This will return all the products in the database.
+GET {{baseUrl}}/api/product/getAll
+###
+
+
+### update a product availability
+# The API url should contain the 'name' parameter of the product to be updated.
+# The 'name' parameter works as the unique identifier for the product.
+# The status would alternate between 'In Stock' and 'Stock Out'.
+PUT {{baseUrl}}/api/product/update/availability/Biriyani
+###
+
+
+### update a product description
+# The API url should contain the 'name' parameter of the product to be updated.
+# The 'name' parameter works as the unique identifier for the product.
+# The request body should contain the 'description' field with the updated description.
+PUT {{baseUrl}}/api/product/update/description/<name>
+Content-Type: application/json
+
+{
+    "description": "The latest Iphone 16 Pro Max - The best phone ever?"
+}
+###
+
+
+### update a product discount
+# The API url should contain the 'name' of the product and 'discount' parameters of the product to be updated.
+# The 'name' parameter works as the unique identifier for the product.
+# The 'discount' parameter should be a number between 0 and 100.
+PUT {{baseUrl}}/api/product/update/discount/<name>/<discount>
+###
+
+
+### filter products by category
+# The API url should contain the 'categoryName' parameter to filter products by category.
+# The 'categoryName' parameter should match the name of an existing category.
+# The name works as the unique identifier and is case-insensitive.
+GET {{baseUrl}}/api/product/filter/category/<categoryName>
+###
+
+
+### filter products by name
+# The API url should contain the 'name' parameter to filter products by name.
+# The 'name' parameter should match the name of an existing product.
+# The name works as the unique identifier and is case-insensitive.
+GET {{baseUrl}}/api/product/filter/name/<name>
+###
+
+### ---------- for products ----------
