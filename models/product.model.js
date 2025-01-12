@@ -23,6 +23,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       unique: true,
       required: [true, "Please enter a product code."],
+      unique: true
     },
     category: {
       type: mongoose.Schema.Types.ObjectId,

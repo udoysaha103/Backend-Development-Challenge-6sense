@@ -15,13 +15,13 @@ POST {{baseUrl}}/api/category/create
 Content-Type: application/json
 
 {
-    "name": "Electrics"
+    "name": "Electronics"
 }
 ###
 
 
 ### delete a category
-DELETE {{baseUrl}}/api/category/delete/Electricals
+DELETE {{baseUrl}}/api/category/delete/Iphone 16 Pro
 ###
 
 
@@ -32,4 +32,65 @@ GET {{baseUrl}}/api/category/getAll
 
 ### update a category name
 PUT {{baseUrl}}/api/category/update/Electrics/Electricals
+###
+
+### ---------- for categories ----------
+
+
+
+### ---------- for products ----------
+
+### create a product
+POST {{baseUrl}}/api/product/create
+Content-Type: application/json
+
+{
+    "name": "Jollibee Phoenix",
+    "description": "The best fast food in the world",
+    "price": 4000,
+    "discount": 25,
+    "image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    "status": "In Stock",
+    "category": "Food"
+}
+###
+
+
+### delete a product
+DELETE {{baseUrl}}/api/product/delete/Iphone 16 Pro Max
+###
+
+
+### get all products
+GET {{baseUrl}}/api/product/getAll
+###
+
+
+### update a product availability
+PUT {{baseUrl}}/api/product/update/availability/Biriyani
+###
+
+
+### update a product description
+PUT {{baseUrl}}/api/product/update/description/Iphone 16 Pro Max
+Content-Type: application/json
+
+{
+    "description": "The latest Iphone 16 Pro Max - The best phone ever?"
+}
+###
+
+
+### update a product discount
+PUT {{baseUrl}}/api/product/update/discount/Jollibee Phoenix/15
+###
+
+
+### filter products by category
+GET {{baseUrl}}/api/product/filter/category/Food
+###
+
+
+### filter products by name
+GET {{baseUrl}}/api/product/filter/name/pHo
 ###

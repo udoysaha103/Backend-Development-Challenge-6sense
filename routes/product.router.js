@@ -7,18 +7,18 @@ const { createProduct, deleteProduct, getAllProducts, updateAvailability, update
 router.post("/create", createProduct);
 
 // delete a product
-router.delete("/delete/:id", deleteProduct);
+router.delete("/delete/:name", deleteProduct);
 
 // get all products
 router.get("/getAll", getAllProducts);
 
 // update a product
-router.put("/update/availability/:id", updateAvailability);
-router.put("/update/description/:id", updateDescription);
-router.put("/update/discount/:id", updateDiscount);
+router.put("/update/availability/:name", updateAvailability);
+router.put("/update/description/:name", updateDescription);
+router.put("/update/discount/:name/:newDiscount", updateDiscount);
 
 // filter products
-router.get("/filter/category/:category", filterByCategory);
+router.get("/filter/category/:categoryName", filterByCategory);
 router.get("/filter/name/:name", filterByName);
 
 
