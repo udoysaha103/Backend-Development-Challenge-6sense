@@ -1,0 +1,7 @@
+# Set a base URL variable
+@baseUrl = http://localhost:3001
+
+
+# get the home endpoint
+GET {{baseUrl}}/
+
